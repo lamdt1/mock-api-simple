@@ -16,7 +16,7 @@ app.get('/', function (req, res) {
 });
 
 app.post('/api/upload', function (req, res) {
-  console.log('Request ======', req)
+  console.log('Request upload ======', req)
   // upload(req, res, function (err) {
   //   if (err) {
   //     return res.end({"code": "SYSTEM_ERROR"});
@@ -26,12 +26,14 @@ app.post('/api/upload', function (req, res) {
 });
 
 app.post('/api/register', function (req, res) {
+  console.log('Request register ======', req)
   setTimeout(() => {
     return res.end({ "message": { "shared_token": "ZsPitF57" } })
   }, 1000)
 });
 
 app.post('/api/verify', function (req, res) {
+  console.log('Request verify ======', req)
   setTimeout(() => {
     return res.end({"code": "SUCCESS"})
   }, 1000)
