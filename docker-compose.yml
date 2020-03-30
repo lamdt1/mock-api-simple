@@ -9,5 +9,5 @@ services:
     volumes:
       - ./:/home/node/app
     expose:
-      - "8788"
+      - "3000"
     command: bash -c "npm install && npm start"
