@@ -21,7 +21,7 @@ app.post('/api/upload', function (req, res) {
   //   if (err) {
   //     return res.end({"code": "SYSTEM_ERROR"});
   //   }
-  //   res.end({"code": "SUCCESS"});
+    res.end({"code": "SUCCESS"});
   // });
 });
 
