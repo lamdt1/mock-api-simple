@@ -16,17 +16,24 @@ app.get('/', function (req, res) {
 });
 
 app.post('/api/upload', function (req, res) {
-  upload(req, res, function (err) {
-    if (err) {
-      return res.end("Error uploading file.");
-    }
-    res.end("File is uploaded");
-  });
+  console.log('Request ======', req)
+  // upload(req, res, function (err) {
+  //   if (err) {
+  //     return res.end({"code": "SYSTEM_ERROR"});
+  //   }
+  //   res.end({"code": "SUCCESS"});
+  // });
 });
 
 app.post('/api/register', function (req, res) {
   setTimeout(() => {
     return res.end({ "message": { "shared_token": "ZsPitF57" } })
+  }, 1000)
+});
+
+app.post('/api/verify', function (req, res) {
+  setTimeout(() => {
+    return res.end({"code": "SUCCESS"})
   }, 1000)
 });
 
