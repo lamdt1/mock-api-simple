@@ -16,13 +16,16 @@ app.get('/', function (req, res) {
 });
 
 app.post('/api/upload', function (req, res) {
-  console.log('Request upload ======', req)
-  upload(req, res, function (err) {
-    if (err) {
-      return res.end({"code": "SYSTEM_ERROR"});
-    }
-    res.send({"code": "SUCCESS"});
-  });
+  console.log('Request upload ======', req.body)
+  // upload(req, res, function (err) {
+  //   if (err) {
+  //     return res.end({"code": "SYSTEM_ERROR"});
+  //   }
+  //   res.send({"code": "SUCCESS"});
+  // });
+  setTimeout(() => {
+    return res.send({"code": "SUCCESS"})
+  }, Math.floor( ( Math.random() * 10000 ) + 100 ))
 });
 
 app.post('/api/register', function (req, res) {
