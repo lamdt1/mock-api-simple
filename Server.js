@@ -48,6 +48,8 @@ const init = async () => {
         method: 'POST',
         options: {
             payload: {
+                maxBytes: 900 * 1024 * 1024,
+                parse: true,
                 output: 'stream'
             }
         },
