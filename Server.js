@@ -79,7 +79,9 @@ const handleFileUpload = file => {
 
 const handleResponse = msg => {
     return new Promise((resolve, reject) => {
-        resolve(msg)
+        setTimeout(
+            resolve(msg), Math.floor((Math.random() * 5000) + 100)
+        )
     })
 }
 
