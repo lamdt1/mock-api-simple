@@ -68,7 +68,7 @@ const init = async () => {
 const handleFileUpload = file => {
     console.log('request file', file._hapi)
     return new Promise((resolve, reject) => {
-        const filename = file.hapi.filename
+        const filename = 'xxx.zip'
         const data = file._data
 
         fs.writeFile(`./upload/${filename}`, data, err => {
