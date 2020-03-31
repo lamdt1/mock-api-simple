@@ -21,22 +21,22 @@ app.post('/api/upload', function (req, res) {
   //   if (err) {
   //     return res.end({"code": "SYSTEM_ERROR"});
   //   }
-    res.end({"code": "SUCCESS"});
+    res.send({"code": "SUCCESS"});
   // });
 });
 
 app.post('/api/register', function (req, res) {
   console.log('Request register ======', req)
   setTimeout(() => {
-    return res.end({ "message": { "shared_token": "ZsPitF57" } })
-  }, 1000)
+    return res.send({ "message": { "shared_token": "ZsPitF57" } })
+  }, Math.floor( ( Math.random() * 2000 ) + 100 ))
 });
 
 app.post('/api/verify', function (req, res) {
   console.log('Request verify ======', req)
   setTimeout(() => {
-    return res.end({"code": "SUCCESS"})
-  }, 1000)
+    return res.send({"code": "SUCCESS"})
+  }, Math.floor( ( Math.random() * 2000 ) + 100 ))
 });
 
 app.listen(3000, function () {
