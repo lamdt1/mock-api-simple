@@ -17,7 +17,7 @@ const init = async () => {
         path: '/api/register',
         method: 'POST',
         handler: async (req, h) => {
-            console.log('Request register ======', req)
+            console.log('Request register ======')
             const response = handleResponse({ "message": { "shared_token": "ZsPitF57" } })
             return response
         }
@@ -27,7 +27,7 @@ const init = async () => {
         path: '/api/verify',
         method: 'POST',
         handler: async (req, h) => {
-            console.log('Request verify ======', req)
+            console.log('Request verify ======')
             const response = handleResponse({ "code": "SUCCESS" })
             return response
         }
@@ -53,9 +53,9 @@ const init = async () => {
         },
         handler: async (req, h) => {
             const { payload } = req
-            console.log('Request upload ======', payload)
+            console.log('Request upload ======')
 
-            const response = handleFileUpload(payload.file)
+            const response = await handleFileUpload(payload.file)
             return response
         }
     })
