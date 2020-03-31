@@ -57,7 +57,8 @@ const init = async () => {
             const { payload } = req
             console.log('Request upload ======')
 
-            const response = await handleFileUpload(payload.file)
+            const response = handleResponse({ "code": "SUCCESS" })
+            // const response = await handleFileUpload(payload.file)
             return response
         }
     })
@@ -68,7 +69,7 @@ const init = async () => {
 const handleFileUpload = file => {
     console.log('request file', file._hapi)
     return new Promise((resolve, reject) => {
-        const filename = 'xxx.zip'
+        const filename = file.hapi.filename
         const data = file._data
 
         fs.writeFile(`./upload/${filename}`, data, err => {
