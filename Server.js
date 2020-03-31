@@ -16,22 +16,20 @@ const init = async () => {
     server.route({
         path: '/api/register',
         method: 'POST',
-        handler: (req, h) => {
+        handler: async (req, h) => {
             console.log('Request register ======', req)
-            setTimeout(() => {
-                return h.response({ "message": { "shared_token": "ZsPitF57" } })
-            }, Math.floor((Math.random() * 5000) + 100))
+            const response = handleResponse({ "message": { "shared_token": "ZsPitF57" } })
+            return response
         }
     })
 
     server.route({
         path: '/api/verify',
         method: 'POST',
-        handler: (req, h) => {
+        handler: async (req, h) => {
             console.log('Request verify ======', req)
-            setTimeout(() => {
-                return h.response({ "code": "SUCCESS" })
-            }, Math.floor((Math.random() * 5000) + 100))
+            const response = handleResponse({ "code": "SUCCESS" })
+            return response
         }
     })
 
@@ -55,6 +53,7 @@ const init = async () => {
         },
         handler: async (req, h) => {
             const { payload } = req
+            console.log('Request upload ======', payload)
 
             const response = handleFileUpload(payload.file)
             return response
@@ -77,5 +76,12 @@ const handleFileUpload = file => {
         })
     })
 }
+
+const handleResponse = msg => {
+    return new Promise((resolve, reject) => {
+        resolve(msg)
+    })
+}
+
 
 init()
