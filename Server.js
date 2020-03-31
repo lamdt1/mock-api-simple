@@ -19,7 +19,7 @@ const init = async () => {
         handler: (req, h) => {
             console.log('Request register ======', req)
             setTimeout(() => {
-                return res.send({ "message": { "shared_token": "ZsPitF57" } })
+                return h.response({ "message": { "shared_token": "ZsPitF57" } })
             }, Math.floor((Math.random() * 5000) + 100))
         }
     })
@@ -30,7 +30,7 @@ const init = async () => {
         handler: (req, h) => {
             console.log('Request verify ======', req)
             setTimeout(() => {
-                return res.send({ "code": "SUCCESS" })
+                return h.response({ "code": "SUCCESS" })
             }, Math.floor((Math.random() * 5000) + 100))
         }
     })
